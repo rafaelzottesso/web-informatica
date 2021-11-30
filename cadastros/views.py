@@ -10,14 +10,14 @@ class EstadoCreate(CreateView):
     model = Estado
     fields = ['sigla', 'nome']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('index-2')
+    success_url = reverse_lazy('listar-estado')
 
 
 class EstadoUpdate(UpdateView):
     model = Estado
-    fields = ['nome']
+    fields = ['sigla', 'nome']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('index-2')
+    success_url = reverse_lazy('listar-estado')
 
 
 class EstadoList(ListView):
@@ -32,14 +32,14 @@ class CidadeCreate(CreateView):
     model = Cidade
     fields = ['nome', 'habitantes', 'estado']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('index-2')
+    success_url = reverse_lazy('listar-cidade')
 
 
 class CidadeUpdate(UpdateView):
     model = Cidade
     fields = ['nome', 'habitantes', 'estado']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('index-2')
+    success_url = reverse_lazy('listar-cidade')
 
 
 class CidadeList(ListView):

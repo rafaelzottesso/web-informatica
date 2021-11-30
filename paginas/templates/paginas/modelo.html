@@ -67,7 +67,22 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{% url 'cadastrar-estado' %}">Estado</a></li>
-                                <li><a class="dropdown-item" href="#">Cidade</a></li>
+                                <li><a class="dropdown-item" href="{% url 'cadastrar-cidade' %}">Cidade</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Listas
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'listar-estado' %}">Estado</a></li>
+                                <li><a class="dropdown-item" href="{% url 'listar-cidade' %}">Cidade</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

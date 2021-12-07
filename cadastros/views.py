@@ -12,12 +12,26 @@ class EstadoCreate(CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-estado')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo'] = 'Cadastro de Estados'
+        context['botao'] = 'Cadastrar'
+        context['cor'] = 'primary'
+        return context 
+
 
 class EstadoUpdate(UpdateView):
     model = Estado
     fields = ['sigla', 'nome']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-estado')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo'] = 'Editar Estado'
+        context['botao'] = 'Salvar'
+        context['cor'] = 'success'
+        return context
 
 
 class EstadoList(ListView):
@@ -34,12 +48,26 @@ class CidadeCreate(CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-cidade')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo'] = 'Cadastro de Cidades'
+        context['botao'] = 'Cadastrar'
+        context['cor'] = 'primary'
+        return context
+
 
 class CidadeUpdate(UpdateView):
     model = Cidade
     fields = ['nome', 'habitantes', 'estado']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-cidade')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo'] = 'Editar Cidade'
+        context['botao'] = 'Salvar'
+        context['cor'] = 'success'
+        return context
 
 
 class CidadeList(ListView):

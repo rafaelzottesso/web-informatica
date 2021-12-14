@@ -5,8 +5,11 @@ from django.views.generic.list import ListView
 
 from django.urls import reverse_lazy
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class EstadoCreate(CreateView):
+
+class EstadoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('index')
     model = Estado
     fields = ['sigla', 'nome']
     template_name = 'cadastros/form.html'
@@ -20,7 +23,8 @@ class EstadoCreate(CreateView):
         return context 
 
 
-class EstadoUpdate(UpdateView):
+class EstadoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('index')
     model = Estado
     fields = ['sigla', 'nome']
     template_name = 'cadastros/form.html'
@@ -34,7 +38,8 @@ class EstadoUpdate(UpdateView):
         return context
 
 
-class EstadoList(ListView):
+class EstadoList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('index')
     model = Estado
     template_name = 'cadastros/listas/estados.html'
 
@@ -42,7 +47,8 @@ class EstadoList(ListView):
 #######################################
 
 
-class CidadeCreate(CreateView):
+class CidadeCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('index')
     model = Cidade
     fields = ['nome', 'habitantes', 'estado']
     template_name = 'cadastros/form.html'
@@ -56,7 +62,8 @@ class CidadeCreate(CreateView):
         return context
 
 
-class CidadeUpdate(UpdateView):
+class CidadeUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('index')
     model = Cidade
     fields = ['nome', 'habitantes', 'estado']
     template_name = 'cadastros/form.html'
@@ -70,7 +77,8 @@ class CidadeUpdate(UpdateView):
         return context
 
 
-class CidadeList(ListView):
+class CidadeList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('index')
     model = Cidade
     template_name = 'cadastros/listas/cidades.html'
 

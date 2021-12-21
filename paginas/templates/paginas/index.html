@@ -8,15 +8,29 @@
             Página Inicial do Blog
         </h2>
 
-        <div class="row bg-info p-3 mb-2">
-            <div class="col-2">
+        <div class="row p-3 mb-2">
+            <div class="col-4">
                 Primeira parte
+
+                {{atributos}}
             </div>
             <div class="col-8">
-                Segunda parte
-            </div>
-            <div class="col-2">
-                Terceira parte
+                <h4>Últimas cidades cadastradas...</h4>
+
+                {% for c in cidades %}
+                
+                <div class="card text-left my-1">
+                  <img class="card-img-top" src="" alt="">
+                  <div class="card-body">
+                    <h4 class="card-title">{{ c.nome }}</h4>
+                    <p class="card-text">{{ c.estado }}</p>
+                  </div>
+                </div>
+                
+                {% empty %}
+                <p>Nenhum registro encontrado...</p>
+                {% endfor %}
+                
             </div>
         </div>
         
@@ -26,6 +40,6 @@
 
         <br><br>
         
-        <img src="{% static 'imagens/dc.jpg' %}" alt="" srcset="">
+        <img src="{% static 'imagens/dc.jpg' %}" alt="" class="img-fluid">
 
 {% endblock %}

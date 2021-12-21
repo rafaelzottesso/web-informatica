@@ -114,11 +114,11 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                         </ul>
                     </div>
                     {% else %}
-                    <a href="#" class="btn btn-light mx-2">Login</a>
+                    <a href="{% url 'login' %}" class="btn btn-light mx-2">Login</a>
                     <a href="#" class="btn btn-success mx-2">Registrar</a>
                     {% endif %}
 

@@ -12,6 +12,7 @@
 
     <thead>
         <tr>
+            <th>Código</th>
             <th>Nome</th>
             <th>Estado</th>
             <th>Habitantes</th>
@@ -23,6 +24,7 @@
 
         {% for cidade in object_list %}
         <tr>
+            <td>{{cidade.pk}}</td>
             <td>{{cidade.nome}}</td>
             <td>{{cidade.estado}}</td>
             <td>{{cidade.habitantes}}</td>

@@ -14,13 +14,18 @@ class UsuarioCreate(CreateView):
 
     def form_valid(self, form):
 
-        grupo = get_object_or_404(Group, name="Docente")
+        # Como aqui vem os dados do forms.py, não temos o form.instance e sim o form.cleaned_data
+        # pegamos o nome do grupo que o usuário marcou no select e buscamos o objeto só para garantir 
+        grupo = get_object_or_404(Group, name=form.cleaned_data['grupo'].name)
 
+        # Aqui cria o usuário no banco
         url = super().form_valid(form)
 
+        # Adiciona o grupo ao objeto usuário e salva
         self.object.groups.add(grupo)
         self.object.save()
 
+        # Cria um perfil para este usuário
         Perfil.objects.create(usuario=self.object)
 
         return url

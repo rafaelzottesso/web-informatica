@@ -109,7 +109,7 @@
                             {{ request.user }}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Meu perfil</a></li>
+                            <li><a class="dropdown-item" href="{% url 'atualizar-dados' %}">Meu perfil</a></li>
                             <li><a class="dropdown-item" href="#">Alterar senha</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -119,7 +119,7 @@
                     </div>
                     {% else %}
                     <a href="{% url 'login' %}" class="btn btn-light mx-2">Login</a>
-                    <a href="#" class="btn btn-success mx-2">Registrar</a>
+                    <a href="{% url 'registrar' %}" class="btn btn-success mx-2">Registrar</a>
                     {% endif %}
 
                 </div>
